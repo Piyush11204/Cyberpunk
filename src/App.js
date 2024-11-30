@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./Pages/HomePage.jsx";
+import LoginPage from "./Pages/Auth/LoginPage.jsx";
+import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
+import Navbar from "./Pages/Navbar.jsx";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Mock authentication status (Replace this with real auth logic)
+  useEffect(() => {
+    const user = localStorage.getItem("user"); // Simulating user auth
+    setIsLoggedIn(!!user);
+  }, []);
+
+  const PrivateRoute = ({ children }) => {
+    return isLoggedIn ? children : <Navigate to="/login" replace />;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          {/* Public Route */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+
+          {/* Protected Route */}
+          <Route
+            path="/"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
