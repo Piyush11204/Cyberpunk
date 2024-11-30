@@ -6,17 +6,17 @@ import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
 import Navbar from "./Pages/Navbar.jsx";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   // Mock authentication status (Replace this with real auth logic)
-  useEffect(() => {
-    const user = localStorage.getItem("user"); // Simulating user auth
-    setIsLoggedIn(!!user);
-  }, []);
+  // useEffect(() => {
+  //   const user = localStorage.getItem("user"); // Simulating user auth
+  //   setIsLoggedIn(!!user);
+  // }, []);
 
-  const PrivateRoute = ({ children }) => {
-    return isLoggedIn ? children : <Navigate to="/login" replace />;
-  };
+  // const PrivateRoute = ({ children }) => {
+  //   return isLoggedIn ? children : <Navigate to="/login" replace />;
+  // };
 
   return (
     <Router>
@@ -31,9 +31,9 @@ function App() {
           <Route
             path="/"
             element={
-              <PrivateRoute>
+              // <PrivateRoute>
                 <HomePage />
-              </PrivateRoute>
+              // </PrivateRoute>
             }
           />
         </Routes>
