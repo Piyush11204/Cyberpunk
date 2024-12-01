@@ -1,22 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React  from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage.jsx";
 import LoginPage from "./Pages/Auth/LoginPage.jsx";
 import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
 import Navbar from "./Pages/Navbar.jsx";
 
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Mock authentication status (Replace this with real auth logic)
-  // useEffect(() => {
-  //   const user = localStorage.getItem("user"); // Simulating user auth
-  //   setIsLoggedIn(!!user);
-  // }, []);
-
-  // const PrivateRoute = ({ children }) => {
-  //   return isLoggedIn ? children : <Navigate to="/login" replace />;
-  // };
 
   return (
     <Router>
