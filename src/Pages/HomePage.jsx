@@ -1,23 +1,44 @@
 import React from "react";
-import { Play, Book, Tv } from "lucide-react";
+import { Code, Globe, Server, Smartphone, Book, VideoIcon } from "lucide-react";
 
-const HomePage = () => {
-  const animeLinks = [
-    { name: "Cyberpunk: Edgerunners", link: "https://www.netflix.com/title/81054853" },
-    { name: "Ghost in the Shell", link: "https://www.crunchyroll.com/" },
-    { name: "Akira", link: "https://www.funimation.com/" },
-  ];
-
-  const bookLinks = [
-    { name: "Neuromancer", link: "https://www.goodreads.com/book/show/22328.Neuromancer" },
-    { name: "Do Androids Dream of Electric Sheep?", link: "https://www.goodreads.com/book/show/7082.Do_Androids_Dream_of_Electric_Sheep_" },
-    { name: "Altered Carbon", link: "https://www.goodreads.com/book/show/40445.Alteration_Carbon" },
-  ];
-
-  const gameLinks = [
-    { name: "Cyberpunk 2077", link: "https://www.cyberpunk.net/" },
-    { name: "Deus Ex: Human Revolution", link: "https://www.eidosmontreal.com/games/deus-ex-human-revolution" },
-    { name: "System Shock", link: "https://www.systemshock.com/" },
+const PortfolioPage = () => {
+  const projectLinks = [
+    { 
+      name: "Trip Finder", 
+      link: "https://trip-finder-five.vercel.app/", 
+      icon: <Globe size={24} />,
+      description: "A comprehensive travel planning application"
+    },
+    { 
+      name: "Easy Yoga", 
+      link: "https://easy-yoga.vercel.app/", 
+      icon: <Book size={24} />,
+      description: "Yoga and wellness web application" 
+    },
+    { 
+      name: "Phone Pe Clone", 
+      link: "https://phone-pe-eta.vercel.app/", 
+      icon: <Smartphone size={24} />,
+      description: "Digital payment platform replica" 
+    },
+    { 
+      name: "Page Paradise", 
+      link: "https://page-paradise2-0.vercel.app/", 
+      icon: <Server size={24} />,
+      description: "Innovative web application platform" 
+    },
+    { 
+      name: "Twisted Tickles", 
+      link: "https://twisted-tickles.vercel.app/", 
+      icon: <Code size={24} />,
+      description: "Creative web development project" 
+    },
+    { 
+      name: "Video Call App", 
+      link: "https://video-call-wine.vercel.app/", 
+      icon: <VideoIcon size={24} />,
+      description: "Real-time video communication platform" 
+    }
   ];
 
   return (
@@ -25,73 +46,52 @@ const HomePage = () => {
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-teal-300">Welcome to Cyberpunk Central</h1>
+          <h1 className="text-4xl font-extrabold text-teal-300">My Project Portfolio</h1>
           <p className="text-lg text-gray-400 mt-2">
-            Immerse yourself in the world of cybernetic dreams, gritty neon cities, and dystopian adventures.
+            Explore a collection of innovative web applications and digital experiences
           </p>
         </header>
 
-        {/* Anime Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-teal-300 flex items-center gap-2">
-            <Tv size={24} /> Cyberpunk Anime
-          </h2>
-          <p className="text-gray-400 mt-2">
-            Dive into thrilling anime that explore cyberpunk themes of technology and humanity.
-          </p>
-          <ul className="mt-4 space-y-3">
-            {animeLinks.map((anime, index) => (
-              <li key={index} className="hover:text-teal-400">
-                <a href={anime.link} target="_blank" rel="noopener noreferrer">
-                  {anime.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Books Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-teal-300 flex items-center gap-2">
-            <Book size={24} /> Cyberpunk Books
-          </h2>
-          <p className="text-gray-400 mt-2">
-            Explore seminal novels that define the cyberpunk genre and inspire a futuristic mindset.
-          </p>
-          <ul className="mt-4 space-y-3">
-            {bookLinks.map((book, index) => (
-              <li key={index} className="hover:text-teal-400">
-                <a href={book.link} target="_blank" rel="noopener noreferrer">
-                  {book.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Games Section */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold text-teal-300 flex items-center gap-2">
-            <Play size={24} /> Cyberpunk Games
-          </h2>
-          <p className="text-gray-400 mt-2">
-            Engage in interactive experiences that bring cyberpunk stories to life.
-          </p>
-          <ul className="mt-4 space-y-3">
-            {gameLinks.map((game, index) => (
-              <li key={index} className="hover:text-teal-400">
-                <a href={game.link} target="_blank" rel="noopener noreferrer">
-                  {game.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+        {/* Projects Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projectLinks.map((project, index) => (
+            <div 
+              key={index} 
+              className="bg-gray-800 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-teal-500 border border-transparent"
+            >
+              <div className="flex items-center mb-4">
+                <span className="text-teal-400 mr-3">{project.icon}</span>
+                <h2 className="text-xl font-bold text-teal-300">{project.name}</h2>
+              </div>
+              <p className="text-gray-400 mb-4">{project.description}</p>
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-teal-400 hover:text-teal-200 transition-colors flex items-center"
+              >
+                View Project
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  className="h-5 w-5 ml-2" 
+                  viewBox="0 0 20 20" 
+                  fill="currentColor"
+                >
+                  <path 
+                    fillRule="evenodd" 
+                    d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" 
+                    clipRule="evenodd" 
+                  />
+                </svg>
+              </a>
+            </div>
+          ))}
+        </div>
 
         {/* Footer Section */}
         <footer className="text-center text-gray-500 text-sm mt-16">
           <p>
-            Cyberpunk Central &copy; {new Date().getFullYear()} | Powered by Neon Dreams
+            Personal Portfolio &copy; {new Date().getFullYear()} | Crafted with Passion
           </p>
         </footer>
       </div>
@@ -99,4 +99,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default PortfolioPage;
