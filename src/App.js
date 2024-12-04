@@ -1,9 +1,11 @@
 import React  from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import HomePage from "./Pages/HomePage.jsx";
+import HomePage from "./Pages/Projects.jsx";
 import LoginPage from "./Pages/Auth/LoginPage.jsx";
 import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
 import Navbar from "./Pages/Navbar.jsx";
+import LandingPage from "./Pages/HomePage/LandingPage.jsx";
+import AboutPage from "./Pages/HomePage/AboutPage.jsx";
 
 function App() {
 
@@ -16,13 +18,15 @@ function App() {
           {/* Public Route */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/projects" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage/>} />
 
           {/* Protected Route */}
           <Route
             path="/"
             element={
               // <PrivateRoute>
-                <HomePage />
+                <LandingPage />
               // </PrivateRoute>
             }
           />

@@ -40,18 +40,21 @@ const Navbar = () => {
       <div className="max-w-7xl  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Brand */}
-          <div className="flex-shrink-0 text-xl font-bold">Cyberpunk</div>
+          <div className="flex-shrink-0 text-xl font-bold">
+          <Link to="/" className="hover:text-teal-300">
+          Cyberpunk
+            </Link></div>
 
           {/* Menu */}
           <div className="hidden md:flex space-x-4">
-            <Link to="/" className="hover:text-teal-300">
-              Home
+            <Link to="/projects" className="hover:text-teal-300">
+              Projects
             </Link>
             <Link to="/about" className="hover:text-teal-300">
-              About
+              About Me
             </Link>
             <Link to="/contact" className="hover:text-teal-300">
-              Contact
+              Contact Me
             </Link>
           </div>
 

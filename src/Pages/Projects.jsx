@@ -16,7 +16,7 @@ const PortfolioPage = () => {
       description: "Yoga and wellness web application" 
     },
     { 
-      name: "Phone Pe Clone", 
+      name: "Payment Gateway", 
       link: "https://phone-pe-eta.vercel.app/", 
       icon: <Smartphone size={24} />,
       description: "Digital payment platform replica" 
