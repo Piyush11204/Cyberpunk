@@ -42,11 +42,19 @@ const PortfolioPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-8 relative">
+      <video 
+        autoPlay 
+        loop 
+        muted 
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://motionbgs.com/media/1650/futuristic-elements-hud.960x540.mp4" type="video/mp4" />
+      </video>
+      <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header Section */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-teal-300">My Project Portfolio</h1>
+          <h1 className="text-4xl font-extrabold text-teal-300">My Projects</h1>
           <p className="text-lg text-gray-400 mt-2">
             Explore a collection of innovative web applications and digital experiences
           </p>
@@ -57,7 +65,7 @@ const PortfolioPage = () => {
           {projectLinks.map((project, index) => (
             <div 
               key={index} 
-              className="bg-gray-800 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-teal-500 border border-transparent"
+              className="bg-gray-800 bg-opacity-90 rounded-lg p-6 transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-teal-500 border border-transparent"
             >
               <div className="flex items-center mb-4">
                 <span className="text-teal-400 mr-3">{project.icon}</span>
@@ -87,13 +95,6 @@ const PortfolioPage = () => {
             </div>
           ))}
         </div>
-
-        {/* Footer Section */}
-        <footer className="text-center text-gray-500 text-sm mt-16">
-          <p>
-            Personal Portfolio &copy; {new Date().getFullYear()} | Crafted with Passion
-          </p>
-        </footer>
       </div>
     </div>
   );

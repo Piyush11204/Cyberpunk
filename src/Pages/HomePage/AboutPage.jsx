@@ -1,38 +1,36 @@
 import React from "react";
 import {
-    GithubIcon,
-    Linkedin,
-    Instagram,
-    Mail,
-    Phone,
     Code,
     University,
     Award,
     Globe,
-    Globe2Icon,
     BookOpen,
     Target,
     Zap,
-    ExternalLink
+    ExternalLink,
+    Globe2Icon
 
 } from "lucide-react";
+import TechStackSection from "../../components/Techstack";
+import ContactSection from "../../components/ContactSection";
 
 const certifications = [
+    
     {
-      title: "Web Development Course",
+      title: "Foundations of User Experience (UX) Design",
       link: "https://www.coursera.org/account/accomplishments/verify/2HLGV9W732GB?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
       hours: "18 hours Course",
       platform: "Coursera",
       icon: <BookOpen className="text-blue-400" size={32} />,
-      skills: ["HTML", "CSS", "JavaScript", "Web Development"]
+      skills: ["Figma", "Google doc","PhotoShop", "JavaScript", "Web Development"]
     },
     {
-      title: "Advanced Programming Course",
+      title: "Python for Data Science, AI & Development",
       link: "https://www.coursera.org/account/accomplishments/verify/2G3HYKKGMR8W?utm_source=link&utm_medium=certificate&utm_content=cert_image&utm_campaign=sharing_cta&utm_product=course",
       hours: "25 hours Course",
       platform: "Coursera",
       icon: <Target className="text-green-400" size={32} />,
-      skills: ["Programming Fundamentals", "Algorithms", "Data Structures"]
+      skills: ["Programming Fundamentals","Pandas","Django","Flask", "Algorithms", "Data Structures"]
     },
     {
       title: "Full Stack Development",
@@ -40,7 +38,15 @@ const certifications = [
       hours: "13 hours Course",
       platform: "Udemy",
       icon: <Globe className="text-purple-400" size={32} />,
-      skills: ["React", "Node.js", "Express", "MongoDB", "Full Stack"]
+      skills: ["React","JQuery", "Node.js", "Express", "MongoDB", "Full Stack"]
+    },
+    {
+        title:"Hacktoberfest 2024",
+        link:"https://www.holopin.io/@piyush11204#badges",
+        hours:"Open Source Contribution",
+        platform:"Hacktoberfest",
+        icon: <Globe2Icon className="text-blue-400" size={32} />,
+        skills: ["Git","Github","Next.js","Node.js"]
     },
     {
       title: "Technology Workshop",
@@ -56,7 +62,7 @@ const certifications = [
       hours: "Cloud Certification",
       platform: "Google Cloud",
       icon: <Globe className="text-yellow-400" size={32} />,
-      skills: ["Cloud Computing", "Google Cloud Platform", "Cloud Infrastructure"]
+      skills: ["Cloud Computing","LLM", "Google Cloud Platform", "Generative AI","Responsible AI"]
     },
     {
       title: "AI Chatbot Development",
@@ -69,24 +75,18 @@ const certifications = [
 ];
 
 const AboutPage = () => {
-    const contactInfo = {
-        email: "piyushkrishnadutt@gmail.com",
-        phone: "+91 7558565929", // Note: Replace with your actual phone number
-        github: "https://github.com/Piyush11204",
-        linkedin: "https://www.linkedin.com/in/piyush-yadav-23b8ba2a3/",
-        instagram: "https://www.instagram.com/piyush.afk/",
-        hackathonProfile: "https://www.holopin.io/@piyush11204#badges" // Add your Hackathon/DevPost profile if you have one
-    };
-
-    const techStack = [
-        "TypeScript", "React", "Next.js", "Node.js", "MongoDB",
-        "Python", "Java", "Vue.js", "Express.js"
-    ];
-
+ 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-8">
-            <div className="max-w-5xl mx-auto">
-       
+        <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-8">
+            <video 
+                autoPlay 
+                loop 
+                muted 
+                className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
+            >
+                <source src="https://motionbgs.com/media/5329/tech-hud.960x540.mp4" type="video/mp4" />
+            </video>
+            <div className="relative z-10 max-w-5xl mx-auto">
                 {/* Header Section */}
                 <header className="text-center mb-12">
                     <h1 className="text-4xl font-extrabold text-teal-300">Piyush Krishnadutt Yadav</h1>
@@ -119,152 +119,70 @@ const AboutPage = () => {
                     </div>
                 </section>
 
-                {/* Contact Information */}
-                <section className="mb-12">
-                    <div className="grid md:grid-cols-2 gap-6">
-                        {/* Contact Details */}
-                        <div className="bg-gray-800 rounded-lg p-6">
-                            <h2 className="text-2xl font-bold text-teal-300 mb-4">Contact Details</h2>
-                            <div className="space-y-4">
-                                <div className="flex items-center">
-                                    <Mail className="text-teal-400 mr-4" size={24} />
-                                    <a
-                                        href={`mailto:${contactInfo.email}`}
-                                        className="hover:text-teal-300"
-                                    >
-                                        {contactInfo.email}
-                                    </a>
-                                </div>
-                                <div className="flex items-center">
-                                    <Phone className="text-teal-400 mr-4" size={24} />
-                                    <span>{contactInfo.phone}</span>
-                                </div>
-                            </div>
-                        </div>
+                <ContactSection />
+                <TechStackSection />
 
-                        {/* Social Links */}
-                        <div className="bg-gray-800 rounded-lg p-6">
-                            <h2 className="text-2xl font-bold text-teal-300 mb-4">Connect With Me</h2>
-                            <div className="flex space-x-4">
-                                <a
-                                    href={contactInfo.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-300 hover:text-teal-400 transition-colors"
-                                >
-                                    <GithubIcon size={32} />
-                                </a>
-                                <a
-                                    href={contactInfo.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-300 hover:text-teal-400 transition-colors"
-                                >
-                                    <Linkedin size={32} />
-                                </a>
-                                <a
-                                    href={contactInfo.instagram}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-300 hover:text-teal-400 transition-colors"
-                                >
-                                    <Instagram size={32} />
-                                </a>
-                                <a href={contactInfo.hackathonProfile}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-300 hover:text-teal-400 transition-colors"
-                                >
-
-                                    <Globe2Icon size={32} />
-                                </a>
-                                <a
-
-                                    href={`tel:${contactInfo.phone}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="text-gray-300 hover:text-teal-400 transition-colors"
-                                >
-                                    <Phone size={32} />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Skills and Tech Stack */}
                 <section className="bg-gray-800 rounded-lg p-8 mb-12 shadow-lg">
-                    <div className="flex items-center mb-6">
-                        <Globe className="text-teal-400 mr-4" size={32} />
-                        <h2 className="text-2xl font-bold text-teal-300">Tech Stack</h2>
+                    <div className="flex items-center mb-8">
+                        <Award className="text-teal-400 mr-4" size={36} />
+                        <h2 className="text-3xl font-bold text-teal-300">Certifications & Achievements</h2>
                     </div>
-                    <div className="flex flex-wrap gap-3">
-                        {techStack.map((tech, index) => (
-                            <span
-                                key={index}
-                                className="bg-teal-900 text-teal-300 px-3 py-1 rounded-full text-sm"
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {certifications.map((cert, index) => (
+                            <div 
+                                key={index} 
+                                className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-xl border-l-4 border-teal-500"
                             >
-                                {tech}
-                            </span>
+ <a 
+                                                href={cert.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className="hover:text-teal-200 transition-colors"
+                                            >
+                                <div className="flex items-start">
+                                   
+                                    <div className="mr-6">
+                                        {React.cloneElement(cert.icon, { size: 48 })}
+                                    </div>
+                                    <div className="flex-grow">
+                                        <h3 className="text-xl font-semibold text-teal-300 mb-2 flex items-center">
+                                            <a 
+                                                href={cert.link} 
+                                                target="_blank" 
+                                                rel="noopener noreferrer" 
+                                                className="hover:text-teal-200 transition-colors"
+                                            >
+                                                {cert.title}
+                                            </a>
+                                            <ExternalLink className="ml-2 text-gray-500" size={16} />
+                                        </h3>
+                                        <div className="mb-3">
+                                            <p className="text-gray-400 text-sm">{cert.hours}</p>
+                                            <p className="border-2 w-fit border-teal-600 text-teal-300 font-extrabold px-3 py-1 m-2 rounded text-xs">{cert.platform}</p>
+                                        </div>
+                                        <div className="flex flex-wrap gap-2">
+                                            {cert.skills.map((skill, skillIndex) => (
+                                                <span 
+                                                    key={skillIndex} 
+                                                    className="bg-teal-900 text-teal-300 px-2 py-1 rounded-full text-xs"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                </a>
+                            </div>
                         ))}
                     </div>
                 </section>
-           
-                <section className="bg-gray-800 rounded-lg p-8 mb-12 shadow-lg">
-    <div className="flex items-center mb-8">
-        <Award className="text-teal-400 mr-4" size={36} />
-        <h2 className="text-3xl font-bold text-teal-300">Certifications & Achievements</h2>
-    </div>
-    <div className="grid md:grid-cols-2 gap-6">
-        {certifications.map((cert, index) => (
-            <div 
-                key={index} 
-                className="bg-gray-900 rounded-lg p-6 hover:bg-gray-800 transition-all duration-300 transform hover:-translate-y-2 shadow-lg hover:shadow-xl border-l-4 border-teal-500"
-            >
-                <div className="flex items-start">
-                    <div className="mr-6">
-                        {React.cloneElement(cert.icon, { size: 48 })}
-                    </div>
-                    <div className="flex-grow">
-                        <h3 className="text-xl font-semibold text-teal-300 mb-2 flex items-center">
-                            <a 
-                                href={cert.link} 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="hover:text-teal-200 transition-colors"
-                            >
-                                {cert.title}
-                            </a>
-                            <ExternalLink className="ml-2 text-gray-500" size={16} />
-                        </h3>
-                        <div className="mb-3">
-                            <p className="text-gray-400 text-sm">{cert.hours}</p>
-                            <p className="text-gray-500 text-sm">{cert.platform}</p>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {cert.skills.map((skill, skillIndex) => (
-                                <span 
-                                    key={skillIndex} 
-                                    className="bg-teal-900 text-teal-300 px-2 py-1 rounded-full text-xs"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        ))}
-    </div>
-</section>
-
-                {/* Education */}
-              
 
                 {/* Footer */}
                 <footer className="text-center text-gray-500 text-sm mt-16">
                     <p>
-                        Personal Portfolio &copy; {new Date().getFullYear()} | Crafted with Passion
+                        Piyush K. Yadav &copy; {new Date().getFullYear()} | Crafted with Passion
                     </p>
                 </footer>
             </div>

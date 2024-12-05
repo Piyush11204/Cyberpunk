@@ -1,0 +1,125 @@
+import React from 'react';
+import { 
+  Mail, 
+  Phone, 
+  GithubIcon, 
+  Linkedin, 
+  Instagram, 
+  Globe2Icon 
+} from 'lucide-react';
+
+const ContactSection = () => {
+  const contactInfo = {
+    email: "piyushkrishnadutt@gmail.com",
+    phone: "+91 7558565929",
+    github: "https://github.com/Piyush11204",
+    linkedin: "https://www.linkedin.com/in/piyush-yadav-23b8ba2a3/",
+    instagram: "https://www.instagram.com/piyush.afk/",
+    hackathonProfile: "https://www.holopin.io/@piyush11204#badges"
+  };
+
+  const socialLinks = [
+    { 
+      Icon: GithubIcon, 
+      href: contactInfo.github, 
+      label: "GitHub" 
+    },
+    { 
+      Icon: Linkedin, 
+      href: contactInfo.linkedin, 
+      label: "LinkedIn" 
+    },
+    { 
+      Icon: Instagram, 
+      href: contactInfo.instagram, 
+      label: "Instagram" 
+    },
+    { 
+      Icon: Globe2Icon, 
+      href: contactInfo.hackathonProfile, 
+      label: "Hackathon Profile" 
+    },
+
+  ];
+
+  return (
+    <section className="w-full py-12 mb-12 bg-gray-900">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-8 w-full">
+          {/* Contact Details */}
+          <div className="bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-2xl font-bold text-teal-300 mb-6 border-b border-teal-400 pb-3">
+              Contact Information
+            </h2>
+            <div className="space-y-4">
+              {/* Email */}
+              <div className="flex items-center space-x-4 group">
+                <Mail className="text-teal-400 group-hover:text-teal-300 transition-colors" size={28} />
+                <a 
+                  href={`mailto:${contactInfo.email}`}
+                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-lg"
+                >
+                  {contactInfo.email}
+                </a>
+              </div>
+              
+              {/* Phone */}
+              <div className="flex items-center space-x-4 group">
+                <Phone className="text-teal-400 group-hover:text-teal-300 transition-colors" size={28} />
+                <a
+                  href={`tel:${contactInfo.phone}`}
+                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-lg"
+                >
+                  {contactInfo.phone}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Links */}
+          <div className="bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-2xl font-bold text-teal-300 mb-6 border-b border-teal-400 pb-3">
+              Connect With Me
+            </h2>
+            <div className="flex flex-wrap gap-4 justify-center items-center">
+              {socialLinks.map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    text-gray-300 
+                    hover:text-teal-400 
+                    hover:bg-gray-700 
+                    p-3 
+                    rounded-full 
+                    transition-all 
+                    duration-300 
+                    transform 
+                    hover:scale-110
+                    group
+                    flex 
+                    items-center 
+                    justify-center
+                  "
+                  aria-label={label}
+                >
+                  
+                  <Icon 
+                    size={32} 
+                    className="group-hover:rotate-6 transition-transform"
+                  />
+
+                </a>
+                
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;

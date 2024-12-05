@@ -50,9 +50,6 @@ const Navbar = () => {
             <Link to="/projects" className="hover:text-teal-300">
               Projects
             </Link>
-            <Link to="/about" className="hover:text-teal-300">
-              About Me
-            </Link>
             <Link to="/contact" className="hover:text-teal-300">
               Contact Me
             </Link>

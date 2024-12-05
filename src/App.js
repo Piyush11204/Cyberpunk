@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/Projects.jsx";
 import LoginPage from "./Pages/Auth/LoginPage.jsx";
 import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
-import Navbar from "./Pages/Navbar.jsx";
-import LandingPage from "./Pages/HomePage/LandingPage.jsx";
+import Navbar from "./components/Navbar.jsx";
 import AboutPage from "./Pages/HomePage/AboutPage.jsx";
 
 function App() {
@@ -19,17 +18,10 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/projects" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage/>} />
+          <Route path="/" element={<AboutPage/>} />
 
-          {/* Protected Route */}
-          <Route
-            path="/"
-            element={
-              // <PrivateRoute>
-                <LandingPage />
-              // </PrivateRoute>
-            }
-          />
+          
+          
         </Routes>
       </div>
     </Router>
