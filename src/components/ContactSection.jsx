@@ -39,36 +39,35 @@ const ContactSection = () => {
       href: contactInfo.hackathonProfile, 
       label: "Hackathon Profile" 
     },
-
   ];
 
   return (
-    <section className="w-full py-12 mb-12 bg-gray-900">
+    <section className="w-full py-8 sm:py-12 mb-12 bg-gray-900">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-8 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
           {/* Contact Details */}
-          <div className="bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
-            <h2 className="text-2xl font-bold text-teal-300 mb-6 border-b border-teal-400 pb-3">
+          <div className="bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6 transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-xl sm:text-2xl font-bold text-teal-300 mb-4 sm:mb-6 border-b border-teal-400 pb-3">
               Contact Information
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               {/* Email */}
-              <div className="flex items-center space-x-4 group">
-                <Mail className="text-teal-400 group-hover:text-teal-300 transition-colors" size={28} />
+              <div className="flex items-center space-x-3 sm:space-x-4 group">
+                <Mail className="text-teal-400 group-hover:text-teal-300 transition-colors" size={24} />
                 <a 
                   href={`mailto:${contactInfo.email}`}
-                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-lg"
+                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-base sm:text-lg break-all"
                 >
                   {contactInfo.email}
                 </a>
               </div>
               
               {/* Phone */}
-              <div className="flex items-center space-x-4 group">
-                <Phone className="text-teal-400 group-hover:text-teal-300 transition-colors" size={28} />
+              <div className="flex items-center space-x-3 sm:space-x-4 group">
+                <Phone className="text-teal-400 group-hover:text-teal-300 transition-colors" size={24} />
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-lg"
+                  className="text-gray-200 group-hover:text-teal-200 transition-colors text-base sm:text-lg"
                 >
                   {contactInfo.phone}
                 </a>
@@ -77,11 +76,11 @@ const ContactSection = () => {
           </div>
 
           {/* Social Links */}
-          <div className="bg-gray-800 rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:scale-105">
-            <h2 className="text-2xl font-bold text-teal-300 mb-6 border-b border-teal-400 pb-3">
+          <div className="bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6 transform transition-all duration-300 hover:scale-105">
+            <h2 className="text-xl sm:text-2xl font-bold text-teal-300 mb-4 sm:mb-6 border-b border-teal-400 pb-3">
               Connect With Me
             </h2>
-            <div className="flex flex-wrap gap-4 justify-center items-center">
+            <div className="flex flex-wrap gap-3 sm:gap-4 justify-center items-center">
               {socialLinks.map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -92,7 +91,7 @@ const ContactSection = () => {
                     text-gray-300 
                     hover:text-teal-400 
                     hover:bg-gray-700 
-                    p-3 
+                    p-2 sm:p-3 
                     rounded-full 
                     transition-all 
                     duration-300 
@@ -105,14 +104,11 @@ const ContactSection = () => {
                   "
                   aria-label={label}
                 >
-                  
                   <Icon 
-                    size={32} 
+                    size={24} 
                     className="group-hover:rotate-6 transition-transform"
                   />
-
                 </a>
-                
               ))}
             </div>
           </div>

@@ -105,8 +105,8 @@ const Navbar = () => {
           <Link to="/" className="block px-4 py-2 hover:bg-teal-600">
             Home
           </Link>
-          <Link to="/about" className="block px-4 py-2 hover:bg-teal-600">
-            About
+          <Link to="/projects" className="block px-4 py-2 hover:bg-teal-600">
+           Projects
           </Link>
           <Link to="/contact" className="block px-4 py-2 hover:bg-teal-600">
             Contact
