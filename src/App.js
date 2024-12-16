@@ -5,6 +5,7 @@ import LoginPage from "./Pages/Auth/LoginPage.jsx";
 import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import AboutPage from "./Pages/HomePage/AboutPage.jsx";
+import ContactPage from "./Pages/Contact Page/ContactPage.jsx";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/projects" element={<HomePage />} />
           <Route path="/" element={<AboutPage/>} />
+          <Route path="/contact" element={<ContactPage/>} />
 
           
           
