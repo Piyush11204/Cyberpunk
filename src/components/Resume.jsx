@@ -21,7 +21,7 @@ const Resume = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-gray-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1),transparent_50%)]" />
       <div className="flex flex-col items-center relative z-10">
-        <h2 className="text-2xl font-semibold mb-6 glitch-text">Resume</h2>
+        <h2 className="text-2xl font-bold mb-6 glitch-text">Resume</h2>
         
         <div className="space-y-4">
           <button
@@ -34,7 +34,7 @@ const Resume = () => {
                      active:scale-95 flex items-center gap-2"
           >
             <Eye className="w-5 h-5" />
-            <span>View Resume</span>
+            <span className='glitch-text'>View Resume</span>
             <div className={`absolute inset-0 border-2 border-teal-400 rounded-md 
                           transition-all duration-300 ${isHovering ? 'scale-105 opacity-0' : 'scale-100 opacity-100'}`} />
           </button>
@@ -59,7 +59,7 @@ const Resume = () => {
                            hover:bg-teal-700 transition-all duration-300 hover:shadow-[0_0_10px_rgba(20,184,166,0.5)]"
                 >
                   <Download className="w-4 h-4" />
-                  <span>Download</span>
+                  <span className='glitch-text'>Download</span>
                 </button>
                 <button
                   onClick={() => setShowModal(false)}

@@ -69,7 +69,7 @@ const Certificates = () => {
 
   return (
     <>
-        <section className="bg-gray-800 rounded-lg p-4 sm:p-8 mb-12 shadow-lg">
+        <section className="bg-gray-800 rounded-lg p-2 sm:p-8 mb-12 shadow-lg">
             <div className="flex flex-col sm:flex-row items-center mb-8">
                 <Award className="text-teal-400 mb-4 sm:mb-0 sm:mr-4" size={36} />
                 <h2 className="text-2xl sm:text-3xl font-bold text-teal-300 text-center sm:text-left">

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .smooth-transition {
+      transition: transform 0.1s ease;
+    }
+  }
+
 .glitch-text {
     position: relative;
     animation: glitch 1s infinite;
@@ -84,3 +90,4 @@
   .preserve-3d {
     transform-style: preserve-3d;
   }
+

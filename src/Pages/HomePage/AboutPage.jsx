@@ -76,7 +76,7 @@ const AboutPage = () => {
     }, []);
 
     return (
-        <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-8">
+        <div className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-teal-900 text-white p-2">
             <video
                 autoPlay
                 loop
@@ -94,7 +94,7 @@ const AboutPage = () => {
                             Piyush Krishnadutt Yadav
                         </div>
                         
-                        <div className="typing-container text-2xl text-gray-400">
+                        <div className="typing-container text-2xl font-bold text-teal-400">
                             <span className="typing-text">{displayText}</span>
                             <span 
                                 className="typing-cursor"
@@ -170,3 +170,5 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
+
+// for the moblie view make the image as full with as screen and cover 65% from top and and a horizontal live bend at 35 degrree below it my name and other info should be visible

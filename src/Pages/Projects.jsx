@@ -51,9 +51,6 @@ const PortfolioPage = () => {
       icon:<Smartphone size={24}/>,
       description:"A telegram bot for my Github profile profile"
     },
-    {
-      
-    }
   ];
 
   return (
@@ -69,7 +66,7 @@ const PortfolioPage = () => {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Header Section */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-teal-300">My Projects</h1>
+          <h1 className="text-4xl font-extrabold mt-12 text-teal-300">My Projects</h1>
           <p className="text-lg text-gray-400 mt-2">
             Explore a collection of innovative web applications and digital experiences
           </p>
