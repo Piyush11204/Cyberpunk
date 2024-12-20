@@ -1,33 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Zap } from "lucide-react";
+import GlitchText from "./GlitchText";
 
-const GlitchText = ({ text }) => {
-  const [glitchActive, setGlitchActive] = useState(false);
 
-  useEffect(() => {
-    const glitchInterval = setInterval(() => {
-      setGlitchActive(true);
-      setTimeout(() => setGlitchActive(false), 200);
-    }, 1700);
-
-    return () => clearInterval(glitchInterval);
-  }, []);
-
-  return (
-    <div className="relative inline-block">
-      <span className={`relative inline-block ${glitchActive ? 'animate-glitch' : ''}`}>
-        {text}
-        {glitchActive && (
-          <>
-            <span className="absolute top-0 left-0.5 w-full text-cyan-400 animate-glitch-1">{text}</span>
-            <span className="absolute top-0 -left-0.5 w-full text-pink-500 animate-glitch-2">{text}</span>
-          </>
-        )}
-      </span>
-    </div>
-  );
-};
 
 const CyberpunkBorder = () => (
   <svg className="absolute -inset-1 animate-pulse-slow" viewBox="0 0 400 100">
@@ -42,7 +18,7 @@ const CyberpunkBorder = () => (
       d="M0,0 L380,0 L400,20 L400,80 L380,100 L0,100 L0,0"
       fill="none"
       stroke="url(#cyberpunk-gradient)"
-      strokeWidth="2"
+      strokeWidth="3"
       filter="url(#glow)"
       className="animate-draw"
     />
@@ -94,7 +70,7 @@ const Navbar = () => {
               <div className="ml-4 relative">
                 <div className="relative">
                   <CyberpunkBorder />
-                  <div className="px-4 py-1 relative z-10">
+                  <div className="px-2  relative z-10">
                     <GlitchText text="Piyush Yadav" />
 
                     <div className="flex items-center mt-1 text-xs tracking-[0.3em] text-cyan-400">

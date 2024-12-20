@@ -139,7 +139,7 @@ const AboutPage = () => {
                 </div>
 
                 {/* Other Sections */}
-                <section className="fade-in mt-24">
+                <section className="fade-in  mt-24">
                     <Resume />
                 </section>
 

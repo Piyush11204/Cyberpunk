@@ -16,7 +16,7 @@ const Resume = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-10 p-8 bg-gray-900 text-teal-400 shadow-xl rounded-lg border-2 border-teal-500 relative overflow-hidden">
+    <div className="max-w-4xl mx-auto my-10 p-4 bg-gray-900 z-10 text-teal-400 shadow-xl rounded-lg border-2 border-teal-500 relative overflow-hidden">
       {/* Cyberpunk background effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-teal-900/20 to-gray-900/20" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(20,184,166,0.1),transparent_50%)]" />
@@ -56,7 +56,7 @@ const Resume = () => {
                 <button
                   onClick={handleDownload}
                   className="flex items-center gap-2 px-4 py-2 bg-teal-600 text-black rounded-md 
-                           hover:bg-teal-700 transition-all duration-300 hover:shadow-[0_0_10px_rgba(20,184,166,0.5)]"
+                           hover:bg-teal-700 transition-all duration-300 z-10 hover:shadow-[0_0_10px_rgba(20,184,166,0.5)]"
                 >
                   <Download className="w-4 h-4" />
                   <span className='glitch-text'>Download</span>
@@ -74,66 +74,17 @@ const Resume = () => {
               <iframe
                 src={embedUrl}
                 title='Resume Preview'
-                className="w-full h-[32rem] rounded-md"
+                className="w-full h-96 rounded-md"
                 allow="autoplay"
-                frameBorder="0"
+                frameBorder="2"
+                z-index="10"
               />
             </div>
           </div>
         </div>
       )}
 
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-          from { transform: translateY(20px); opacity: 0; }
-          to { transform: translateY(0); opacity: 1; }
-        }
-
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
-
-        .animate-slideUp {
-          animation: slideUp 0.3s ease-out;
-        }
-
-        .glitch-text {
-          position: relative;
-          text-shadow: 0.05em 0 0 rgba(20,184,166,0.75),
-                      -0.025em -0.05em 0 rgba(20,184,166,0.75),
-                      0.025em 0.05em 0 rgba(20,184,166,0.75);
-          animation: glitch 1s infinite;
-        }
-
-        @keyframes glitch {
-          0% { text-shadow: 0.05em 0 0 rgba(20,184,166,0.75),
-                           -0.05em -0.025em 0 rgba(20,184,166,0.75),
-                           -0.025em 0.05em 0 rgba(20,184,166,0.75); }
-          14% { text-shadow: 0.05em 0 0 rgba(20,184,166,0.75),
-                            -0.05em -0.025em 0 rgba(20,184,166,0.75),
-                            -0.025em 0.05em 0 rgba(20,184,166,0.75); }
-          15% { text-shadow: -0.05em -0.025em 0 rgba(20,184,166,0.75),
-                            0.025em 0.025em 0 rgba(20,184,166,0.75),
-                            -0.05em -0.05em 0 rgba(20,184,166,0.75); }
-          49% { text-shadow: -0.05em -0.025em 0 rgba(20,184,166,0.75),
-                            0.025em 0.025em 0 rgba(20,184,166,0.75),
-                            -0.05em -0.05em 0 rgba(20,184,166,0.75); }
-          50% { text-shadow: 0.025em 0.05em 0 rgba(20,184,166,0.75),
-                            0.05em 0 0 rgba(20,184,166,0.75),
-                            0 -0.05em 0 rgba(20,184,166,0.75); }
-          99% { text-shadow: 0.025em 0.05em 0 rgba(20,184,166,0.75),
-                            0.05em 0 0 rgba(20,184,166,0.75),
-                            0 -0.05em 0 rgba(20,184,166,0.75); }
-          100% { text-shadow: -0.025em 0 0 rgba(20,184,166,0.75),
-                             -0.025em -0.025em 0 rgba(20,184,166,0.75),
-                             -0.025em -0.05em 0 rgba(20,184,166,0.75); }
-        }
-      `}</style>
+      
     </div>
   );
 };
