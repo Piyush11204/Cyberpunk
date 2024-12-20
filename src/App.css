@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
-}
+  @keyframes glitch {
+                    0% {
+                        transform: translate(0);
+                    }
+                    20% {
+                        transform: translate(-2px, 2px);
+                    }
+                    40% {
+                        transform: translate(-2px, -2px);
+                    }
+                    60% {
+                        transform: translate(2px, 2px);
+                    }
+                    80% {
+                        transform: translate(2px, -2px);
+                    }
+                    100% {
+                        transform: translate(0);
+                    }
+                }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+                .glitch-text {
+                    position: relative;
+                    animation: glitch 1s infinite;
+                }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+                .glitch-text::before,
+                .glitch-text::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+                .glitch-text::before {
+                    left: 2px;
+                    text-shadow: -2px 0 #ff00c1;
+                    clip: rect(44px, 450px, 56px, 0);
+                    animation: glitch-anim 5s infinite linear alternate-reverse;
+                }
 
-.App-link {
-  color: #61dafb;
-}
+                .glitch-text::after {
+                    left: -2px;
+                    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+                    animation: glitch-anim2 1s infinite linear alternate-reverse;
+                }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+                .fade-in {
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+                }
+
+                .fade-in-visible {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                @keyframes spin-slow {
+                    from {
+                        transform: rotate(0deg);
+                    }
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+
+                @keyframes bounce-gentle {
+                    0%, 100% {
+                        transform: translateY(0);
+                    }
+                    50% {
+                        transform: translateY(-5px);
+                    }
+                }
+
+                .animate-spin-slow {
+                    animation: spin-slow 8s linear infinite;
+                }
+
+                .animate-bounce-gentle {
+                    animation: bounce-gentle 2s ease-in-out infinite;
+                }
+
+                .animate-fade-in {
+                    animation: fadeIn 1s ease-in;
+                }
+
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }

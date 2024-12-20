@@ -38,6 +38,21 @@ const PortfolioPage = () => {
       link: "https://video-call-wine.vercel.app/", 
       icon: <VideoIcon size={24} />,
       description: "Real-time video communication platform" 
+    },
+    {
+      name:"Colabrative Text Editor",
+      link:"https://collaborative-text-editor-rosy.vercel.app/",
+      icon:<Book size={24}/>,
+      description:"A collaborative text editor"
+    },
+    {
+      name:"Telegram Bot",
+      link:"https://t.me/alonehunter_bot",
+      icon:<Smartphone size={24}/>,
+      description:"A telegram bot for my Github profile profile"
+    },
+    {
+      
     }
   ];
 
