@@ -6,6 +6,7 @@ import SignUpPage from "./Pages/Auth/SignUpPage.jsx";
 import Navbar from "./components/Navbar.jsx";
 import AboutPage from "./Pages/HomePage/AboutPage.jsx";
 import ContactPage from "./Pages/Contact Page/ContactPage.jsx";
+import Resume from "./components/Resume.jsx";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           
           
         </Routes>
+        <Resume/>
       </div>
     </Router>
   );

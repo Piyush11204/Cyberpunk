@@ -9,6 +9,7 @@ const PortfolioPage = () => {
       icon: <Globe size={24} />,
       description: "A comprehensive travel planning application"
     },
+
     { 
       name: "Easy Yoga", 
       link: "https://easy-yoga.vercel.app/", 
@@ -16,16 +17,16 @@ const PortfolioPage = () => {
       description: "Yoga and wellness web application" 
     },
     { 
-      name: "Payment Gateway", 
-      link: "https://phone-pe-eta.vercel.app/", 
-      icon: <Smartphone size={24} />,
-      description: "Digital payment platform replica" 
-    },
-    { 
       name: "Page Paradise", 
       link: "https://page-paradise2-0.vercel.app/", 
       icon: <Server size={24} />,
       description: "Innovative web application platform" 
+    },
+    { 
+      name: "Payment Gateway", 
+      link: "https://phone-pe-eta.vercel.app/", 
+      icon: <Smartphone size={24} />,
+      description: "Digital payment platform replica" 
     },
     { 
       name: "Twisted Tickles", 

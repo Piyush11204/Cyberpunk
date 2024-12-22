@@ -70,8 +70,10 @@ const Navbar = () => {
               <div className="ml-4 relative">
                 <div className="relative">
                   <CyberpunkBorder />
-                  <div className="px-2  relative z-10">
+                  <div className="px-2  relative  z-10">
+                    <div className="text-lg font-bold">
                     <GlitchText text="Piyush Yadav" />
+                    </div>
 
                     <div className="flex items-center mt-1 text-xs tracking-[0.3em] text-cyan-400">
                       <Zap className="w-3 h-3 mr-1 animate-pulse" />
@@ -84,7 +86,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex space-x-8">
-            {["Projects", "Contact Me"].map((item) => (
+            {["Projects", "Contact"].map((item) => (
               <Link
                 key={item}
                 to={`/${item.toLowerCase().replace(" ", "")}`}

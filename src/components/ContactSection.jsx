@@ -10,7 +10,7 @@ import {
 
 const ContactSection = () => {
   const contactInfo = {
-    email: "piyushkrishnadutt@gmail.com",
+    email: "piyushkrishna11@gmail.com",
     phone: "+91 7558565929",
     github: "https://github.com/Piyush11204",
     linkedin: "https://www.linkedin.com/in/piyush-yadav-23b8ba2a3/",
