@@ -67,6 +67,8 @@ const AboutPage = () => {
                 <div className="fade-in mt-24">
                     <Certificates />
                 </div>
+
+                
             </div>
         </div>
     );

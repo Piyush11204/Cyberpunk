@@ -151,9 +151,9 @@ const NameAndPhoto = () => {
                 </div>
 
                 {/* Right side - Image with 3D effect */}
-                <div className="w-full md:w-1/2 flex justify-center items-center mt-32 md:mt-0 md:mb-0 order-1 md:order-2">
+                <div className="w-full md:w-1/2 flex justify-center items-center mt-32 md:mt-0 md:mb-0 order-1 md:order-2 p-8">
                     <div
-                        className="relative w-64 h-64 perspective-1000"
+                        className="relative w-72 h-72 perspective-1000"
                         onMouseMove={handleMouseMove}
                         onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
                     >
@@ -161,9 +161,10 @@ const NameAndPhoto = () => {
                             className="relative w-full h-full transition-transform duration-200 transform-gpu preserve-3d rounded-full border-4 border-teal-400 overflow-hidden"
                             style={{
                                 transform: `
-                                        rotateY(${mousePosition.x * 60}deg)
-                                        rotateX(${-mousePosition.y * 60}deg)
-                                    `
+                                    rotateY(${mousePosition.x * 60}deg)
+                                    rotateX(${-mousePosition.y * 60}deg)
+                                `,
+                                boxShadow: '0 0 20px rgba(0,255,255,0.5)'
                             }}
                         >
                             <img
