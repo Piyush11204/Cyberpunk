@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect,useCallback } from 'react';
+import React, { useState, useEffect} from 'react';
 
 const NameAndPhoto = () => {
     const abilities = [
@@ -13,60 +13,10 @@ const NameAndPhoto = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [cursorPosition, setCursorPosition] = useState(0);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-    const [matrixChars, setMatrixChars] = useState([]);
 
-    // Matrix rain effect
-    const generateMatrixChar = useCallback(() => {
-        // const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-        const chars = '01';
-        const x = Math.random() * window.innerWidth;
-        const speed = 2 + Math.random() * 3;
-        const size = 10 + Math.random() * 16;
-        return {
-            x,
-            y: 10,
-            char: chars[Math.floor(Math.random() * chars.length)],
-            speed,
-            size,
-            opacity: 0.5 + Math.random() * 0.5,
-            color: Math.random() > 0.47 ? '#00ffff' : '#00ff00'
-        };
-        }, []);
 
-        useEffect(() => {
-            const createMatrixRain = () => {
-                setMatrixChars(prev => {
-                    const newChars = [...prev];
-                    
-                    // Add new characters
-                    if (newChars.length < 150) {
-                        newChars.push(generateMatrixChar());
-                    }
 
-                    // Update positions and remove offscreen characters
-                    return newChars
-                        .map(char => ({
-                            ...char,
-                            y: char.y + char.speed
-                        }))
-                        .filter(char => char.y < window.innerHeight);
-                });
-            };
 
-            const intervalId = setInterval(createMatrixRain, 50);
-
-            const timeoutId = setTimeout(() => {
-                clearInterval(intervalId);
-                setMatrixChars([]);
-            }, 10000);
-
-            return () => {
-                clearInterval(intervalId);
-                clearTimeout(timeoutId);
-            };
-        }, [generateMatrixChar]);
-
-    // Handle mouse movement for 3D effect
     const handleMouseMove = (e) => {
         const { clientX, clientY } = e;
         const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -106,25 +56,7 @@ const NameAndPhoto = () => {
     }, [displayText, isDeleting, currentAbilityIndex, abilities]);
     return (
         <div>
-                 <div className="fixed inset-0 pointer-events-none">
-                {matrixChars.map((char, i) => (
-                    <div
-                        key={i}
-                        className="absolute font-matrix transition-all"
-                        style={{
-                            left: `${char.x}px`,
-                            top: `${char.y}px`,
-                            color: char.color,
-                            opacity: char.opacity,
-                            fontSize: `${char.size}px`,
-                            transform: 'translate3d(0,0,0)',
-                            textShadow: `0 0 8px ${char.color}`
-                        }}
-                    >
-                        {char.char}
-                    </div>
-                ))}
-            </div>
+                
             <div className="flex flex-col md:flex-row items-center justify-between min-h-screen">
                 {/* Left side - Text Content */}
                 <div className="w-full md:w-1/2 space-y-6 text-center md:text-left order-2 md:order-1">
@@ -176,7 +108,9 @@ const NameAndPhoto = () => {
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+
+       
     )
 }
 
