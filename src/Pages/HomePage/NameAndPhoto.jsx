@@ -3,9 +3,9 @@ import React, { useState, useEffect} from 'react';
 
 const NameAndPhoto = () => {
     const abilities = [
-        "Full-Stack Developer",
-        "MERN Enthusiast",
-        "UI/UX Designer"
+        "Full-Stack Developer  ",
+        "MERN Enthusiast  ",
+        "UI/UX Designer  "
     ];
 
     const [displayText, setDisplayText] = useState('');
@@ -73,6 +73,10 @@ const NameAndPhoto = () => {
                                 position: 'relative'
                             }}
                         ></span>
+                      |
+                    </div>
+                    <div>
+                        Intern at <a href="https://www.linkedin.com/company/lsoysapps/posts/?feedView=all" className="text-teal-400 hover:text-teal-300">Lsoys Apps and Games</a>
                     </div>
 
                     <div className="mt-12 text-gray-300 leading-relaxed">

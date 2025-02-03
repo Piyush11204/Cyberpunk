@@ -4,40 +4,271 @@ import { Menu, Zap } from "lucide-react";
 import GlitchText from "./GlitchText";
 
 
-
 const CyberpunkBorder = () => (
-  <svg className="absolute -inset-1 animate-pulse-slow" viewBox="0 0 400 100">
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3.5" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <path
-      d="M0,0 L380,0 L400,20 L400,80 L380,100 L0,100 L0,0"
-      fill="none"
-      stroke="url(#cyberpunk-gradient)"
-      strokeWidth="3"
-      filter="url(#glow)"
-      className="animate-draw"
-    />
+  <svg className="absolute -inset-1" viewBox="0 0 400 100">
     <defs>
-      <linearGradient id="cyberpunk-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#00fff2">
-          <animate attributeName="stop-color" 
-            values="#00fff2; #ff00ff; #00fff2" 
-            dur="4s" repeatCount="indefinite"/>
+      {/* Circuit-like gradient */}
+      <linearGradient id="circuit-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#00ffff">
+          <animate 
+            attributeName="stop-color" 
+            values="#00ffff;#00ff80;#00ffff" 
+            dur="4s" 
+            repeatCount="indefinite"
+          />
         </stop>
         <stop offset="100%" stopColor="#ff00ff">
-          <animate attributeName="stop-color" 
-            values="#ff00ff; #00fff2; #ff00ff" 
-            dur="4s" repeatCount="indefinite"/>
+          <animate 
+            attributeName="stop-color" 
+            values="#ff00ff;#8000ff;#ff00ff" 
+            dur="4s" 
+            repeatCount="indefinite"
+          />
         </stop>
       </linearGradient>
+
+      {/* Digital glitch filter */}
+      <filter id="digital-glitch">
+        <feTurbulence 
+          type="turbulence" 
+          baseFrequency="0.05" 
+          numOctaves="3" 
+          result="turbulence"
+        >
+          <animate 
+            attributeName="baseFrequency" 
+            values="0.02;0.1;0.02" 
+            dur="2.5s" 
+            repeatCount="indefinite"
+          />
+        </feTurbulence>
+        <feDisplacementMap 
+          in2="turbulence" 
+          in="SourceGraphic" 
+          scale="10" 
+          xChannelSelector="R" 
+          yChannelSelector="G"
+        >
+          <animate 
+            attributeName="scale" 
+            values="0;10;0" 
+            dur="2.5s" 
+            repeatCount="indefinite"
+          />
+        </feDisplacementMap>
+      </filter>
     </defs>
+
+    {/* Outer circuit path */}
+    <path 
+      d="M20,0 L380,0 
+         C400,20 400,40 380,60 
+         L20,60 
+         C0,40 0,20 20,0"
+      fill="none"
+      stroke="url(#circuit-gradient)"
+      strokeWidth="3"
+      strokeDasharray="15 10"
+      filter="url(#digital-glitch)"
+    >
+      <animate 
+        attributeName="stroke-dashoffset" 
+        from="25" 
+        to="-25" 
+        dur="3s" 
+        repeatCount="indefinite"
+      />
+    </path>
+
+    {/* Inner circuit lines */}
+    {[20, 40].map((y) => (
+      <path 
+        key={y}
+        d={`M10,${y} L390,${y}`}
+        stroke="url(#circuit-gradient)"
+        strokeWidth="1"
+        opacity="0.5"
+        strokeDasharray="10 10"
+        filter="url(#digital-glitch)"
+      >
+        <animate 
+          attributeName="stroke-dashoffset" 
+          from="-10" 
+          to="10" 
+          dur="2s" 
+          repeatCount="indefinite"
+        />
+      </path>
+    ))}
+
+    {/* Circuit node points */}
+    {[50, 150, 250, 350].map((x) => (
+      <circle 
+        key={x}
+        cx={x % 400} 
+        cy={50} 
+        r="3" 
+        fill="url(#circuit-gradient)"
+        opacity="0.7"
+      >
+        <animate 
+          attributeName="r" 
+          values="2;5;2" 
+          dur="2s" 
+          repeatCount="indefinite"
+        />
+      </circle>
+    ))}
   </svg>
 );
+// const CyberpunkBorder = () => (
+//   <svg className="absolute -inset-1" viewBox="0 0 400 100">
+//     <defs>
+//       <filter id="glitch-filter">
+//         <feTurbulence 
+//           type="fractalNoise" 
+//           baseFrequency="0.05" 
+//           numOctaves="2" 
+//           result="turbulence">
+//           <animate 
+//             attributeName="baseFrequency" 
+//             values="0.05;0.1;0.05" 
+//             dur="3s" 
+//             repeatCount="indefinite"
+//           />
+//         </feTurbulence>
+//         <feDisplacementMap 
+//           in2="turbulence" 
+//           in="SourceGraphic" 
+//           scale="5" 
+//           xChannelSelector="R" 
+//           yChannelSelector="G">
+//           <animate 
+//             attributeName="scale" 
+//             values="0;5;0" 
+//             dur="3s" 
+//             repeatCount="indefinite"
+//           />
+//         </feDisplacementMap>
+//       </filter>
+      
+//       <linearGradient id="electric-gradient">
+//         <stop offset="0%" stopColor="#00ffff">
+//           <animate 
+//             attributeName="stop-color" 
+//             values="#00ffff;#ff00ff;#00ffff" 
+//             dur="4s" 
+//             repeatCount="indefinite"
+//           />
+//         </stop>
+//         <stop offset="100%" stopColor="#ff00ff">
+//           <animate 
+//             attributeName="stop-color" 
+//             values="#ff00ff;#00ffff;#ff00ff" 
+//             dur="4s" 
+//             repeatCount="indefinite"
+//           />
+//         </stop>
+//       </linearGradient>
+//     </defs>
+    
+//     <path 
+//       d="M20,0 L380,0 Q400,20 400,50 Q400,80 380,100 L20,100 Q0,80 0,50 Q0,20 20,0"
+//       fill="none"
+//       stroke="url(#electric-gradient)"
+//       strokeWidth="3"
+//       filter="url(#glitch-filter)"
+//       strokeDasharray="10 10"
+//     >
+//       <animate 
+//         attributeName="stroke-dashoffset" 
+//         from="20" 
+//         to="-20" 
+//         dur="2s" 
+//         repeatCount="indefinite"
+//       />
+//     </path>
+    
+//     <path 
+//       d="M15,5 L385,5 Q395,25 395,50 Q395,75 385,95 L15,95 Q5,75 5,50 Q5,25 15,5"
+//       fill="none"
+//       stroke="url(#electric-gradient)"
+//       strokeWidth="1"
+//       opacity="0.5"
+//       filter="url(#glitch-filter)"
+//       strokeDasharray="15 15"
+//     >
+//       <animate 
+//         attributeName="stroke-dashoffset" 
+//         from="-15" 
+//         to="15" 
+//         dur="3s" 
+//         repeatCount="indefinite"
+//       />
+//     </path>
+//   </svg>
+// );
+
+// const CyberpunkBorder = () => (
+//   <svg className="absolute -inset-1 animate-pulse-slow" viewBox="0 0 400 100">
+//     <defs>
+//       <filter id="neon-glow">
+//         <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+//         <feFlood floodColor="#00ffff" floodOpacity="0.7"/>
+//         <feComposite in2="coloredBlur" operator="in"/>
+//         <feMerge>
+//           <feMergeNode/>
+//           <feMergeNode in="SourceGraphic"/>
+//         </feMerge>
+//       </filter>
+      
+//       <linearGradient id="cyber-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+//         <stop offset="0%" stopColor="#00ffff">
+//           <animate 
+//             attributeName="stop-color" 
+//             values="#00ffff;#ff00ff;#00ffff" 
+//             dur="5s" 
+//             repeatCount="indefinite"
+//           />
+//         </stop>
+//         <stop offset="100%" stopColor="#ff00ff">
+//           <animate 
+//             attributeName="stop-color" 
+//             values="#ff00ff;#00ffff;#ff00ff" 
+//             dur="5s" 
+//             repeatCount="indefinite"
+//           />
+//         </stop>
+//       </linearGradient>
+      
+//       <clipPath id="jagged-clip">
+//         <path d="M20,0 L380,0 Q400,10 400,30 L400,70 Q400,90 380,100 L20,100 Q0,90 0,70 L0,30 Q0,10 20,0"/>
+//       </clipPath>
+//     </defs>
+    
+//     <rect 
+//       x="0" 
+//       y="0" 
+//       width="400" 
+//       height="100" 
+//       fill="transparent" 
+//       stroke="url(#cyber-gradient)" 
+//       strokeWidth="3" 
+//       filter="url(#neon-glow)"
+//       clipPath="url(#jagged-clip)"
+//       className="animate-pulse-slow"
+//     />
+    
+//     <path 
+//       d="M20,0 L380,0 Q400,10 400,30 L400,70 Q400,90 380,100 L20,100 Q0,90 0,70 L0,30 Q0,10 20,0"
+//       fill="none"
+//       stroke="url(#cyber-gradient)"
+//       strokeWidth="3"
+//       filter="url(#neon-glow)"
+//       className="animate-draw"
+//     />
+//   </svg>
+// );
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

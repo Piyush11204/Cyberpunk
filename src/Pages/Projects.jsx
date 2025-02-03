@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, Globe, Server, Smartphone, Book, VideoIcon } from "lucide-react";
+import { Code, Globe, Server, Smartphone, Book, VideoIcon, Building2 } from "lucide-react";
 
 const PortfolioPage = () => {
   const projectLinks = [
@@ -9,7 +9,12 @@ const PortfolioPage = () => {
       icon: <Globe size={24} />,
       description: "A comprehensive travel planning application"
     },
-
+    {
+      name: "Rentify",
+      link: "https://rentify-zeta-liard.vercel.app/",
+      icon: <Building2 size={24} />,
+      description: "A rental property management platform"
+    },
     { 
       name: "Easy Yoga", 
       link: "https://easy-yoga.vercel.app/", 
@@ -22,6 +27,7 @@ const PortfolioPage = () => {
       icon: <Server size={24} />,
       description: "Innovative web application platform" 
     },
+   
     { 
       name: "Payment Gateway", 
       link: "https://phone-pe-eta.vercel.app/", 
