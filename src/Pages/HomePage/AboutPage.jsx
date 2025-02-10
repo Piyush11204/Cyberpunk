@@ -96,7 +96,7 @@ const AboutPage = () => {
                     </div>
                     <div className="text-gray-300 space-y-6 transform hover:scale-105 transition-transform duration-300">
                         <div className="bg-black/30 backdrop-blur-lg p-6 rounded-xl border border-teal-500/20 hover:border-teal-500/40 transition-all">
-                            <h3 className="text-xl font-semibold text-teal-400">VCET (Vidyalankar College of Engineering and Technology)</h3>
+                            <h3 className="text-xl font-semibold text-teal-400">VCET (Vidyavardhini's College of Engineering and Technology)</h3>
                             <p className="mt-2">Bachelor of Engineering in <span className='text-teal-400 font-semibold'>Information Technology</span></p>
                             <p className="mt-1">Honors in <span className='text-teal-400 font-semibold'>CyberSecurity</span></p>
                             <p className="mt-2 text-gray-400">Third Year | Expected Graduation: 2026</p>
