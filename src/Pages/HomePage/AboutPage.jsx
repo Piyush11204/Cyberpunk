@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useState } from 'react';
 import { University, Briefcase } from "lucide-react";
 import TechStackSection from "../../components/Techstack";
 import ContactSection from "../../components/ContactSection";
@@ -7,6 +7,7 @@ import NameAndPhoto from './NameAndPhoto';
 import { Link } from 'react-router-dom';
 
 const AboutPage = () => {
+    const [selectedCard, setSelectedCard] = useState(null);
     useEffect(() => {
         const observerOptions = {
             threshold: 0.1,
@@ -24,21 +25,29 @@ const AboutPage = () => {
         document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
         return () => observer.disconnect();
     }, []);
-    const experiences = [{
+    const internships = [{
         role: "MERN Stack Developer Intern",
         company: "Lsoys Apps and Games",
         description: "Developing web applications using MongoDB, Express, React, and Node.js",
-        icon: "⚡"
-    }, {
+        icon: "⚡",
+        skills: ["MongoDB", "Express", "React", "Node.js", "REST APIs", "Git"],
+        color: "from-teal-500 to-fuchsia-500"
+    }];
+
+    const committees = [{
         role: "Deputy Technical Head",
         company: "Hackathon Committee",
         description: "Leading technical aspects of hackathon organization and execution",
-        icon: "🚀"
+        icon: "🚀",
+        achievements: ["Organized 3 hackathons", "Managed 200+ participants", "Technical workshop lead"],
+        color: "from-teal-500 to-fuchsia-500"
     }, {
         role: "Deputy Technical Head",
         company: "Core Coding Committee",
         description: "Overseeing coding initiatives and technical projects",
-        icon: "💻"
+        icon: "💻",
+        achievements: ["Led coding workshops", "Mentored 50+ students", "Created learning resources"],
+        color: "from-teal-500 to-fuchsia-500"
     }];
 
     return (
@@ -103,42 +112,79 @@ const AboutPage = () => {
                         </div>
                     </div>
                 </section>
-                <section className="mt-24 relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 to-teal-500/10 blur-3xl" />
-
-                    <div className="relative">
-                        <div className="flex items-center mb-8 space-x-4">
-                            <div className="bg-teal-400/20 p-3 rounded-xl backdrop-blur-sm">
-                                <Briefcase className="text-teal-400 animate-pulse" size={32} />
-                            </div>
-                            <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent">
-                                Experience
-                            </h2>
-                        </div>
-
-                        <div className="grid gap-8">
-                            {experiences.map((exp, index) => (
-                                <div
-                                    key={index}
-                                    className="group relative overflow-hidden"
-                                >
-                                    <div className="absolute inset-0 bg-gradient-to-r from-teal-500/5 to-teal-500/5 group-hover:from-teal-500/10 group-hover:to-teal-500/10 transition-all duration-500" />
-
-                                    <div className="relative bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/5 transition-all duration-500 hover:border-teal-500/20 group-hover:translate-x-2">
-                                        <div className="flex items-center justify-between mb-4">
-                                            <h3 className="text-2xl font-bold text-teal-300 group-hover:text-teal-400 transition-colors">
-                                                {exp.company}
-                                            </h3>
-                                            <span className="text-2xl">{exp.icon}</span>
+                <section className="mt-24 px-4">
+                    <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-teal-300 to-fuchsia-300 bg-clip-text text-transparent">
+                        Professional Journey
+                    </h2>
+                    <div className="grid grid-cols-1 gap-8">
+                        {internships.map((intern, index) => (
+                            <div key={index} className="relative group perspective">
+                                <div className="relative transform transition-all duration-500 group-hover:rotate-y-180">
+                                    <div className="p-6">
+                                        <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-fuchsia-500/20 rounded-2xl blur-xl" />
+                                        <div className="relative bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-teal-500/20">
+                                            <div className="flex items-center justify-between">
+                                                <div>
+                                                    <h3 className="text-3xl font-bold text-teal-300">{intern.company}</h3>
+                                                    <p className="text-xl text-teal-200 mt-2">{intern.role}</p>
+                                                </div>
+                                                <span className="text-4xl">{intern.icon}</span>
+                                            </div>
+                                            <div className="mt-6">
+                                                <h4 className="text-lg font-semibold text-teal-200 mb-3">Tech Stack</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {intern.skills.map((skill, idx) => (
+                                                        <span key={idx} className="px-3 py-1 rounded-full bg-teal-500/20 text-teal-200 text-sm">
+                                                            {skill}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p className="text-lg font-medium text-teal-200 mb-2">{exp.role}</p>
-                                        <p className="text-gray-400 group-hover:text-gray-300 transition-colors">
-                                            {exp.description}
-                                        </p>
                                     </div>
                                 </div>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Committee Section */}
+                <section className="mt-24 px-4">
+                    <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-teal-300 to-fuchsia-300 bg-clip-text text-transparent">
+                    Committees
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {committees.map((committee, index) => (
+                            <div 
+                                key={index}
+                                className={`group cursor-pointer ${selectedCard === index ? 'scale-105' : ''}`}
+                                onClick={() => setSelectedCard(selectedCard === index ? null : index)}
+                            >
+                                <div className="relative">
+                                    <div className={`absolute inset-0 bg-gradient-to-r ${committee.color} opacity-20 rounded-2xl blur-xl transition-all duration-300 group-hover:opacity-30`} />
+                                    <div className="relative bg-black/40 backdrop-blur-xl rounded-2xl p-8 border border-white/10 transition-all duration-300 group-hover:border-white/20">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-white">{committee.company}</h3>
+                                                <p className="text-lg text-gray-300 mt-1">{committee.role}</p>
+                                            </div>
+                                            <span className="text-3xl transform transition-transform group-hover:scale-125">{committee.icon}</span>
+                                        </div>
+                                        
+                                        <div className={`overflow-hidden transition-all duration-300 ${selectedCard === index ? 'max-h-96' : 'max-h-0'}`}>
+                                            <div className="mt-4 space-y-2">
+                                                {committee.achievements.map((achievement, idx) => (
+                                                    <div key={idx} className="flex items-center space-x-2">
+                                                        <div className="w-2 h-2 rounded-full bg-white/50" />
+                                                        <p className="text-gray-300">{achievement}</p>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </section>
 
