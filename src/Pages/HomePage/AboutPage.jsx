@@ -1,5 +1,5 @@
 import React, { useEffect,useState } from 'react';
-import { University, Briefcase } from "lucide-react";
+import { University } from "lucide-react";
 import TechStackSection from "../../components/Techstack";
 import ContactSection from "../../components/ContactSection";
 import Certificates from "./Certificates";
