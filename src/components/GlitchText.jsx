@@ -8,6 +8,7 @@ const GlitchText = ({ text }) => {
         setTimeout(() => setGlitchActive(false), 200);
       }, 1700);
   
+
       return () => clearInterval(glitchInterval);
     }, []);
   
