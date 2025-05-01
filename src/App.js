@@ -10,7 +10,6 @@ import Resume from "./components/Resume.jsx";
 
 function App() {
 
-
   return (
     <Router>
       <div>
